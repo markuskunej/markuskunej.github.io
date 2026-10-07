@@ -1,0 +1,42 @@
+.experience-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.experience-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.experience .experience-logo {
+  display: block;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  object-fit: contain;
+}
+
+.experience .experience-logo--wide {
+  flex-basis: 80px;
+  width: 80px;
+}
+
+.experience .vertical-timeline-element-content ul,
+.experience .vertical-timeline-element-content ol {
+  padding-left: 1.25em;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.experience .vertical-timeline-element-content li + li {
+  margin-top: 0.75em;
+}
+
+@media only screen and (min-width: 768px) {
+  .experience .vertical-timeline-element-content ul,
+  .experience .vertical-timeline-element-content ol {
+    font-size: 16px;
+  }
+}

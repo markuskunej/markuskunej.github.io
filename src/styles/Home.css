@@ -25,7 +25,11 @@ a {
 
 .about img {
   border-radius: 50%;
-  max-width: 300px;
+  width: min(300px, 60%);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 25%;
 }
 .about h2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

@@ -2,31 +2,49 @@ import React from "react";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GithubIcon from "@material-ui/icons/GitHub";
 import EmailIcon from "@material-ui/icons/Email";
-import Markus from "../assets/markus.png";
+import Markus from "../assets/markus.jpeg";
 import Resume from "../assets/Markus_Kunej_Resume.pdf";
 import "../styles/Home.css";
 import Button from "@material-ui/core/Button";
+
+const technicalSkills = [
+  { category: "Languages", skills: "Python, SQL, Go" },
+  {
+    category: "ML & Data",
+    skills: "TensorFlow, PyTorch, LightGBM, Ray, Arize, Snowflake",
+  },
+  {
+    category: "Backend & Infrastructure",
+    skills: "Django, AWS (S3, IAM), Kubernetes, Docker, Terraform, Temporal, Protobuf",
+  },
+  { category: "Frontend", skills: "React" },
+  {
+    category: "Developer Tools",
+    skills: "Claude Code (custom skills, plugins, repository guidance)",
+  },
+];
 
 function Home() {
   return (
     <div className="home">
       <div className="about">
-        <img src={Markus} alt="Markus" />
+        <img src={Markus} alt="Markus Kunej" width="300" height="300" />
         <h2> Welcome!</h2>
         <div className="prompt">
           <p>
-            My name's Markus and I'm a software engineer with a passion for
-            solving difficult problems using A.I. and machine learning.
+            My name’s Markus, and I enjoy turning ideas into useful software,
+            applying AI and machine learning, and building reliable systems that
+            bring it all together.
           </p>
           <p>
-            <a
+            <Button
+              component="a"
+              variant="contained"
               href={Resume}
-              download="Markus-Kunej-Resume"
-              target="_blank"
-              rel="noreferrer"
+              download="Markus-Kunej-Resume.pdf"
             >
-              <Button variant="contained">Download Resume</Button>
-            </a>
+              Download Resume
+            </Button>
           </p>
           <a href="https://github.com/markuskunej">
             <GithubIcon />
@@ -42,16 +60,12 @@ function Home() {
       <div className="skills">
         <h1>Skills</h1>
         <ol className="list">
-          <li className="item">
-            <h2>Languages</h2>
-            <span>Python, C++, JavaScript, C, Java, SQL</span>
-          </li>
-          <li className="item">
-            <h2>Tools / Frameworks</h2>
-            <span>
-              Pytorch, TensorFlow, Mindspore, React, Github, Jupyter Notebooks
-            </span>
-          </li>
+          {technicalSkills.map(({ category, skills }) => (
+            <li className="item" key={category}>
+              <h2>{category}</h2>
+              <span>{skills}</span>
+            </li>
+          ))}
           <li className="item">
             <h2>Hobbies & Interests</h2>
             <span>
