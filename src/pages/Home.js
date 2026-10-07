@@ -8,19 +8,19 @@ import "../styles/Home.css";
 import Button from "@material-ui/core/Button";
 
 const technicalSkills = [
-  { category: "Languages", skills: "Python, SQL, Go" },
+  { category: "Languages", skills: ["Python", "SQL", "Go"] },
   {
     category: "ML & Data",
-    skills: "TensorFlow, PyTorch, LightGBM, Ray, Arize, Snowflake",
+    skills: ["TensorFlow", "PyTorch", "LightGBM", "ONNX", "Ray", "Arize", "Snowflake"],
   },
   {
     category: "Backend & Infrastructure",
-    skills: "Django, AWS (S3, IAM), Kubernetes, Docker, Terraform, Temporal, Protobuf",
+    skills: ["Django", "AWS (S3, IAM, EKS, ECS)", "Kubernetes", "Docker", "Terraform", "Temporal", "Protobuf"],
   },
-  { category: "Frontend", skills: "React" },
+  { category: "Frontend", skills: ["React"] },
   {
     category: "Developer Tools",
-    skills: "Claude Code (custom skills, plugins, repository guidance)",
+    skills: ["Claude Code (Custom skills, plugins, and repository guidance)"],
   },
 ];
 
@@ -57,24 +57,28 @@ function Home() {
           </a>
         </div>
       </div>
-      <div className="skills">
-        <h1>Skills</h1>
-        <ol className="list">
+      <section className="skills" aria-labelledby="skills-title">
+        <h1 id="skills-title">Skills</h1>
+        <ul className="skills-grid">
           {technicalSkills.map(({ category, skills }) => (
-            <li className="item" key={category}>
+            <li className="skill-card" key={category}>
               <h2>{category}</h2>
-              <span>{skills}</span>
+              <ul className="skill-tags" aria-label={category}>
+                {skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
             </li>
           ))}
-          <li className="item">
-            <h2>Hobbies & Interests</h2>
-            <span>
-              Soccer, Strategy Games (Catan, Diplomacy), Bikepacking (biking +
-              camping), Triathlon, Rocket League
-            </span>
-          </li>
-        </ol>
-      </div>
+        </ul>
+        <div className="interests">
+          <h2>Hobbies & Interests</h2>
+          <p>
+            Soccer, Strategy Games (Catan, Diplomacy), Bikepacking (biking +
+            camping), Triathlon, Rocket League
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
