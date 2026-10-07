@@ -18,7 +18,7 @@ function Footer() {
           <EmailIcon />
         </a>
       </div>
-      <p> &copy; 2023 markuskunej.com</p>
+      <p> &copy; 2023 - {new Date().getFullYear()} Markus Kunej</p>
     </div>
   );
 }
